@@ -1,0 +1,111 @@
+---
+title: "Impact of co-creation methods on user engagement in digital health tools"
+author: "Vinayak Anand-Kumar"
+date: "2023-02-09"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Introduction
+
+### Why develop digital health tools?
+Digital health tools present an opportunity for facilitating and enabling the delivery of health care. The World Health Organisation (WHO) broadly groups digital health tools based on the primary value added to the health system; interventions either developed to 1) promote health-related activities amongst health care service users and caregivers, 2) aid the work of those providing health care services, 3) support administrative and managerial functions, or 4) enable the collection, management and use of data. In a systematic review, of the cost-effectiveness of digital health tools, Gentili and colleagues (2022) found that health care interventions, delivered through different digital mediums, generally had favourable cost and health outcomes.     
+
+### Why co-create digital health tools?
+
+#### Addressing issues in user retention
+The potential of digital health tools to the health care system is impeded by poor user retention. Studies, designed to evaluate the efficacy of interventions delivered through a digital mode, have relatively high rates of attrition. In a narrative review, of engagement with digital health tools, Yeager and colleagues (2018) found that attrition rates can be between 60% to 80%. More recently, in a systematic review of drop outs in digital health tools for preventing skin cancer, Hernandez-Rodriguez and colleagues (2022) concluded that digital strategies had a higher drop out rate compared to other prevention interventions.    
+
+Co-creation could be one approach for addressing issues in user retention in digital health tools. Tang and colleagues (2018) presented a case study of co-creating a clinical communication platform together with health care workers; demonstrating that co-creation was both effective in developing digital health tools. Including Adapting and iterating through features of digital tools, can be a time consuming and expensive exercise; often stretching the resources available in a research context. Therefore, changes made to digital health tools, with the aim of improving user acceptance, should be targeted. Collaborating with end users and stakeholders in the iteration process may help generate ideas that are both feasible and have a high rate of success.
+
+### Why evaluate co-creation methods?
+
+#### Co-creation methods used for developing digital health tools
+There is a need to evaluate the impact of using co-creation methods when developing digital health tools. An increasing number of researchers are collaborating with end users and stakeholders to develop digital health tools, which is evident by the increase in the number of publications with keywords relating to co-creation and digital health over the past five years. Studies that measure the impact of different co-creation methods could help inform researchers on how to effectively engage those that receive and/ or provide care in the development process.  
+
+Previous studies have yet to effectively quantify the impact of co-creation on digital health tools. In a systematic review of co-creation in healthcare systems, Laurisz and colleagues (2023), did not find any studies that expressed the advantages of co-creation quantitatively. Alvarez-Perez and colleagues (2022) used co-creation methods to develop an online training course to improve health literacy in pregnant and lactating women; collecting quantiative measures of co-creator experience, acceptability of the digital tool for the target group, and digital health literacy. Although these measures provide an indication of how co-creators experienced the process, and how effective the intervention was, none of the measures clearly demonstrate the effect of co-creation. That is, without a comparative intervention, developed without end users, it is not clear what impact co-creation has on digital health tools.  
+
+
+### Why use app-usage data to measure engagement?
+App usage data is a feasible means of measuring how engaged end users are with the digital health tool (Short et al., 2018). The data is collected passively, and in turn has low respondent burden. Moreover, as the data is not generated from a questionnaire nor interview, there is a lower risk of variation in the data being driven by social desirability. It presents an objective approach to measuring how people are using the tool, whilst not obstructing app use like ecological momentary assessments, and not as invasive or complex to interpret as psychophysiological measures such as eye tracking. 
+
+### Introduce study
+This study utilises app-usage data to evaluate the impact of applying co-creation methods to inform the development of a digital health tool. Two versions of an obstetrics web-app, named TeamBaby, were developed; one with and one without end user and stakeholder collaboration. In addition to passive app-usage data being collected, app users responded to items relating to behaviour change constructs from the Health Action Process Approach (HAPA) model. Using data collected across two versions of the TeamBaby web-app, this study investigated whether the application of co-creation methods was associated with higher levels of user engagement, after controlling for relevant HAPA constructs.   
+
+
+## Methodology
+
+### The digital health tool
+The TeamBaby digital health tool was a web-app that could be accessed through a Unique Resource Locator (URL) and a web browser. The programming language and frameworks used are noted in Table 1. Based on the World Health Organisations classification for digital tools, the web-app could be described as follows:  
+  
+  - Primary health system challenge: Improving quality of care by addressing poor patient experience  
+  - Primary system category: A Learning and Training system  
+  - WHO digital health classification: Transmit targeted health information to client(s) based on health status or demographics (Classification code: 1.1.2)  
+
+The primary purpose of the TeamBaby digital health tool was to provide communication training to expectant mothers, to in turn improve the quality of care received in obstetrics. The training was delivered in the form of ten lessons, presented sequentially, which are outlined in Table 1. Although the tool's primary target group were expectant mothers, lessons from the web-app were also made available to the expectant parent's support network, and obstetric health care workers. As users register for the web-app, the tool prompts individuals to select a role that best fits; mother to be, support person or health care worker. The same ten lessons are presented in all scenarios. However, the wording of the lessons vary based on user selection.  
+
+### Developing the TeamBaby web-app
+The first version of the TeamBaby digital health tool was developed by researchers of the TeamBaby project, and an external app development firm. The digital intervention was part of a broader program of research, and was preceded by communication interventions delivered to health care workers face-to-face, and to pregnant women virtually. Lessons learnt from the initial phases of the TeamBaby project were used to develop the initial specifications of the digital health tool. The app development firm provided feedback on the specifications; using expertise in UX design to make suggestions that would favour user engagement and retention. Following several iterations of the tool specifications, the first version of the TeamBaby digital health tool was made live on the 1st March 2021.  
+The second version of the TeamBaby digital health tool was available from the 1st August 2022, after a series of co-creation methods were used to gather end user and stakeholder feedback. Although changes were made to lessons for all three user groups, the primary focus of the co-creation methods was to improve user engagement and retention amongst expectant mothers. First of such co-creation sessions targeted primary end-users; pregnant women were invited to take part in either a Think Aloud exercise (that was between 3 to 4 hours), or if time was limited, to participate in a semi-structured interview (between 1 to 2 hours). Four women opted for the Think Aloud session, whereas one opted for a semi-structured interview. The former requested participants to verbalise thoughts, feelings and actions as the app was being used. Whilst the latter approach requested participants to use the web-app, and then take part in an interview exploring the experiences of completing each lesson and that of the app, in general. Following sessions with pregnant women, key stakeholders were sought for feedback on the tool using the World Cafe method. A cohort of midwives from the local Midwifery school were invited to take part in a World Cafe, where attendees were split into smaller groups, together with a facilitator, and asked to review a subset of the lessons and provide feedback. All end user and stakeholder feedback was collated, and marked for whether it was feasible or not with the time and resource constraints of the TeamBaby project. The output from the co-creation sessions, which were deemed feasible, were used to infrom the content and features of Version 2.    
+
+### Participants
+The TeamBaby web-app was promoted, primarily across Germany, using both physical and virtual approaches. Flyers were sent out to health care settings that pregnant women were likely to interact with, such as pharmacies, obstetric clinics, and general practitioner clinics. The broader public were notified through press releases; using print media to share insights from the TeamBaby project and invite people that are receiving or providing obstetric care to use the tool. Relevant groups were targeted through social media and existing digital services for pregnant women; links to the TeamBaby web-app were made available through Facebook, Twitter, Instagram, Google Ads and via an existing Native app developed for pregnant women. Additional recruitment efforts were made for Version 1; two participating Obstetric clinics had researchers on site to promote and support use of the TeamBaby web-app. In order to limit the impact of confounders, such as app-use support, when comparing Versions 1 and 2, pregnant women that were recruited through the participating obstetric clinics (n = 202) were removed from the analysis. After exclusions, Versions 1 and 2 had 476 and 170 pregnant women who had registered with consent for data collection respectively.    
+
+### Data collected
+Between March 2021 and January 2023, participants recruited to use the TeamBaby web-app were randomly allocated to either a treatment group (i.e. direct access to the tool) or a wait-list control, where the app link was provided after two weeks. The purpose of the wait list RCT design was to evaluate the efficacy of the web-app with respect to communication behaviour. In February and March 2023, the primary focus of the research shifted to evaluating app-usage. In turn, randomisation was dropped and participants were provided direct links to the web-app. App users that were recruited during randomisation were asked to complete an online survey before registering for the web-app (see Table X for details).    
+
+Participants that registered for the app had the option for app-usage data to be collected as the tool was being used. If consent was provided, all participant interactions with the web-app were time stamped. That is, when participants responded to a question/ answered a quiz item within a lesson, the in-app item code, the participant's response and time stamp were logged. In addition to app-usage data, metadata for both versions was available in the form of number of pages viewed and lessons completed for a given in-app item code. Measures, relating to the Health Action Process Approach (HAPA) constructs, communication competencies, and perceived patient safety, were also collected as participants progressed through the web-app (see Table X for details).     
+
+### Statistical analyses
+In order to evaluate the impact of co-creation methods on multiple engagement metrics, multivariate multiple regression was carried out. The same independent variables were used to predict all engagement metrics; an individual's degree of engagement expressed as a function of perceived usefulness of communication training, perceived risk of poor communication with health care workers, and whether features of the web-app were co-created. Multivariate regression was carried out to identify the impact of predictors on the collection of engagement metrics that measured frequency of use, intensity of use and duration of use.
+
+### Data processing
+Both predictor and outcome variables were processed before applying the models. Missing data, amongst the predictor variables, were imputed using Multiple Imputation by Chained Equations (MICE). Index scores were derived for engagement metrics that were continuous and conceptually similar, to mitigate the inflation of Type I error. Principal Components Analysis (PCA) was used to collapse pages viewed, lessons completed and open ended items completed into a single metric, expressed as "web-app progress" that was scaled betwen 0 and 1; scores closer to 1 reflected greater progress through the digital tool. 
+
+## Results
+
+### Multivariate analysis of effect of co-creation on engagement metrics
+
+Multivariate multiple regression was carried out to estimate the effect of co-creation on user engagement metrics (DVs), whilst controlling for perceived usefulness of communication training and perceived risk of poor communication with health care workers. Table 1 presents the anova model comparisons; demonstrating that incorporating perceived risk and use of co-creation methods significantly improved the prediction of user engagement with the web-app. 
+
+Table 2 presents the impact of the predictors on each engagement metric. The use of co-creation methods, to inform features of the digital tool, predicted more frequent log ins, greater progress through the content, higher likelihood of completing an action plan and more time spent using the tool. Risk perception was also a significant predictor of engagement with the digital tool; those who perceived a greater risk of poor communication with health care workers were predicted to log in more, and spend more time using the web-app. Perceived usefulness of communication training was not predictive of any engagement metrics.
+
+## Discussion
+
+### What did the study set out to do?
+### What did we find?
+
+This study set out to evaluate the impact of using co-creation methods on end user engagement with the TeamBaby web-app. Results indicated that the application of co-creation methods significantly contributed to the prediction of engagement metrics; with end users progressing further through the app, and spending more time per visit when features of the app were developed as a result of collaboration with end users and stakeholders. 
+
+### For each finding:  
+  
+  - State the answer to the research question in plain Enlgish  
+  - Report the result  
+  - Provide a link to the literature  
+  - Provide a link to theory  
+
+Both user risk perception and application of co-creation methods played a role in end user engagement. Models predicting end user engagement, across a range of metrics that captured frequency, duration and intensity of engagement, significantly improved in predictive capability after including risk perception and co-creation as predictor variables.  
+
+### Strengths and limitations  
+
+A strength of this study was the operationalisation of a number of target constructs. The impact of using co-creation could be evaluated fairly accurately as two versions of the same app were developed; one with and one without end user and stakeholder feedback whilst recruiting efforts were fairly similar across the two versions. As a result, the process by which the app was developed and evaluated create conditions for researchers to derive relatively accurate estimates of the impact of applying co-creation methods on end user engagement.  
+
+Conversely, the study was limited by the predictors that could be used to explain variation in end user engagement. As the primary purpose of the study was to evaluate the impact of the web-app on the target behaviour, as opposed to evaluating web-app engagement, the behaviour change constructs were worded in relation to the target behaviour as opposed to app use. As a result, a number of the behaviour change constructs could not be meaningfully included in the models used to explain web-app engagement. 
+
+For each strength/ limitation:  
+  
+  - State the limitation/ strength  
+  - Highlight the impact of the limitation to validity of study/ Value of strength to robustness of study  
+
+### Implications
+
+The findings demonstrate the value of using co-creation methods to develop digital health tools. This is the first study to demonstrate, quantitatively, the value of co-creation with respect to end user engagement. Based on the findings of this study, future researchers have a benchmark to help design studies to evaluate the impact of co-creation on user engagement in digital health tools.
+
+#### Why are findings important?  
+
+#### How does it to previous research?  
+
+#### Provide recommendations for future research

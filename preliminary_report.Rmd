@@ -1,0 +1,112 @@
+---
+title: "Impact of co-creation methods on user engagement in digital health tools"
+author: "Vinayak Anand-Kumar"
+date: "2023-02-01"
+output:
+  prettydoc::html_pretty:
+    theme: leonids
+    highlight: github
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = TRUE)
+knitr::opts_knit$set(root.dir = here::here())
+```
+
+```{r package-doc, message=FALSE, echo=FALSE}
+source("R/00_load_package.R")
+source("R/01_load_data.R")
+source("R/02_format_data.R")
+source("R/02_join_data.R")
+source("R/03_prepare_data.R")
+source("R/04_derive_variables.R")
+source("R/05_engagement_1_frequency.R")
+source("R/05_engagement_2_intensity.R")
+source("R/05_engagement_3_duration.R")
+```
+
+```{r external, include=FALSE}
+knitr::read_chunk("R/00_load_package.R")
+knitr::read_chunk("R/01_load_data.R")
+knitr::read_chunk("R/02_format_data.R")
+knitr::read_chunk("R/02_join_data.R")
+knitr::read_chunk("R/03_prepare_data.R")
+knitr::read_chunk("R/04_derive_variables.R")
+knitr::read_chunk("R/05_engagement_1_frequency.R")
+knitr::read_chunk("R/05_engagement_2_intensity.R")
+knitr::read_chunk("R/05_engagement_3_duration.R")
+```
+
+## Preliminary results
+
+## Executive Summary
+
+Preliminary findings indicate that:  
+  
+  - There are differences in frequency of web-app use, indicating that users logged in more often to Version 2 compared to Version 1  
+  - There are differences in the intensity of use, suggesting that users are engaging more with the content of Version 2 compared to Version 1  
+  - There are no differences in the duration of web-app use across the two versions
+
+## Frequency of use
+
+### Visual exploration of data
+```{r average-log-ins-plot, message=FALSE, echo=FALSE}
+```
+
+### Statistical test for significance
+
+#### Number of log ins between Version 1 and Version 2
+```{r log-ins-test, message=FALSE, echo=FALSE}
+```
+
+## Intensity of use
+
+### Visual exploration of data
+```{r pages-viewed-plot, message=FALSE, echo=FALSE}
+```
+
+```{r lessons-viewed-plot, message=FALSE, echo=FALSE}
+```
+
+```{r open-ended-items-plot, message=FALSE, echo=FALSE}
+```
+
+```{r action-plan-created-plot, message=FALSE, echo=FALSE}
+```
+
+### Statistical test for significance
+
+#### Proportion of pages viewed between Version 1 and Version 2
+```{r pages-viewed-test, message=FALSE, echo=FALSE}
+```
+
+#### Lessons completed between Version 1 and Version 2
+```{r lessons-viewed-test, message=FALSE, echo=FALSE}
+```
+
+#### Proportion of open ended items completed between Version 1 and Version 2
+```{r open-items-test, message=FALSE, echo=FALSE}
+```
+
+#### Action plans completed between Version 1 and Version 2
+```{r action-plans-test, message=FALSE, echo=FALSE}
+```
+
+## Duration of use
+
+### Visual exploration of data
+```{r time-spent-per-visit, message=FALSE, echo=FALSE}
+```
+
+```{r days-between, message=FALSE, echo=FALSE}
+```
+
+### Statistical test for significance
+
+#### Time spent per log in between Version 1 and Version 2
+```{r time-spent-test, message=FALSE, echo=FALSE}
+```
+
+#### Days of use between Version 1 and Version 2
+```{r days-between-test, message=FALSE, echo=FALSE}
+```

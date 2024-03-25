@@ -1,0 +1,164 @@
+---
+title: "Study four"
+author: "Vinayak Anand-Kumar"
+date: "2023-07-13"
+output: word_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_knit$set(root.dir = here::here())
+```
+
+```{r package-doc, message=FALSE, echo=FALSE, warning=FALSE}
+source("R/00_load_data.R")
+source("R/00_load_functions.R")
+source("R/00_load_package.R")
+source("R/01_format_active_data.R")
+source("R/01_format_passive_data.R")
+source("R/02_format_active_data_feedback.R")
+source("R/02_format_active_data_hapa.R")
+source("R/02_format_active_data_safety.R")
+source("R/02_format_baseline.R")
+source("R/02_join_data.R")
+source("R/03_prepare_data.R")
+source("R/04_derive_variables.R")
+source("R/04_process_app_use_data.R")
+source("R/04_process_sentiment_data.R")
+```
+
+```{r external, include=FALSE, warning=FALSE}
+knitr::read_chunk("R/00_load_data.R")
+knitr::read_chunk("R/00_load_functions.R")
+knitr::read_chunk("R/00_load_package.R")
+knitr::read_chunk("R/01_format_active_data.R")
+knitr::read_chunk("R/01_format_passive_data.R")
+knitr::read_chunk("R/02_format_active_data_feedback.R")
+knitr::read_chunk("R/02_format_active_data_hapa.R")
+knitr::read_chunk("R/02_format_active_data_safety.R")
+knitr::read_chunk("R/02_format_baseline.R")
+knitr::read_chunk("R/02_join_data.R")
+knitr::read_chunk("R/03_prepare_data.R")
+knitr::read_chunk("R/04_derive_variables.R")
+knitr::read_chunk("R/04_process_app_use_data.R")
+knitr::read_chunk("R/04_process_sentiment_data.R")
+knitr::read_chunk("R/06_chi_square_sentiment.R")
+knitr::read_chunk("R/06_mann_whitney_user_feedback.R")
+knitr::read_chunk("R/06_model_engagement.R")
+knitr::read_chunk("R/08_create_output_tables.R")
+knitr::read_chunk("R/09_visualise_engagement_1_frequency.R")
+knitr::read_chunk("R/09_visualise_engagement_2_intensity.R")
+knitr::read_chunk("R/09_visualise_engagement_3_duration.R")
+knitr::read_chunk("R/09_visualise_sentiment.R")
+knitr::read_chunk("R/09_visualise_socio_demographics.R")
+knitr::read_chunk("R/09_visualise_user_feedback.R")
+```
+
+## Methods
+
+The main focus of this study was to evaluate the impact of incorporating feedback from end users and stakeholders on the TeamBaby digital health tool, with respect to:  
+  
+  - Sentiment towards the digital health tool  
+  - Frequency, intensity and duration of engagement with the digital health tool  
+
+### Participants  
+The TeamBaby digital health tool was promoted, primarily across Germany, using both physical and virtual approaches. Flyers were sent out to health care settings that pregnant women were likely to interact with, such as pharmacies, obstetric clinics, and general practitioner clinics. The broader public were notified through press releases; using print media to share insights from the TeamBaby project and invite people that are receiving obstetric care to use the tool. Relevant groups were targeted through social media and existing digital services for pregnant women; links to the TeamBaby digital health tool were made available through Facebook, Twitter, Instagram, Google Ads and via an existing Native app developed for pregnant women. Additional recruitment efforts were made for Version 1; two participating Obstetric clinics had researchers on site to promote and support use of the TeamBaby digital health tool. In order to limit the impact of confounders, such as app-use support, when comparing Versions 1 and 2, pregnant women that were recruited through the participating obstetric clinics (n = 202) were removed from the analysis. After exclusions, Versions 1 and 2 had 485 and 407 pregnant women who had registered with consent for data collection respectively. Figures 1 to 4 present the socio-demographic characteristics of end users from Version 1 and 2 of the web-app.
+
+```{r age-plot, echo = FALSE, warning=FALSE, fig.cap = "Figure 1: Age distribution of participants"}
+```
+
+```{r education-plot, echo = FALSE, warning=FALSE, fig.cap = "Figure 2: Education background of participants"}
+```
+
+```{r family-comp, echo = FALSE, warning=FALSE, fig.cap = "Figure 3: Relationship status of participants"}
+```
+
+### Data collected
+
+#### Quantitative data
+Between March 2021 and January 2023, participants recruited to use the TeamBaby digital health tool were randomly allocated to either a treatment group (i.e. direct access to the tool) or a wait-list control, where the app link was provided after two weeks. The purpose of the wait list RCT design was to compare change in communication behavior over time, without the web-app and change in communication as a result of using the web-app. In February and March 2023, the primary focus of the research shifted to evaluating app-usage. In turn, randomisation was dropped and participants were provided direct links to the web-app.  
+
+Participants that registered for the app had the option for app-usage data to be collected as the tool was being used. If consent was provided, all participant interactions with the web-app were time stamped. That is, when participants responded to a question/ answered a quiz item within a lesson, the item code (i.e. label attached to question/ quiz item) along with the participant’s response and time stamp were logged. In addition to app-usage data, metadata for both versions was available in the form of number of pages viewed and lessons completed for each item code. The derivation rules used to create engagement metrics from app usage data and metadata are provided in Table 1. Measures, relating to the Health Action Process Approach (HAPA) constructs, communication competencies, and perceived patient safety, were also collected as participants progressed through the web-app. App users that were recruited during randomisation were asked to complete an online survey before registering for the web-app (see Table A1 in the appendix for details about variables collected throughout the use of the web-app).  
+
+#### Qualitative data
+Between September 2021 and March 2022, the following data collection activities were carried out to gather feedback about Version 1 of the TeamBaby digital health tool, to in turn inform the design of Version 2:  
+  
+  - Think Aloud/ Semi-structured interviews with pregnant women  
+  - World Cafe with Midwives  
+
+Purposive sampling was used to recruit pregnant women. Additional flyers were printed informing people of the potential to provide feedback on the tool. Flyers were sent out to clinics and other locations that pregnant women were likely to gather (e.g. maternity stores, baby clothing stores etc). Four women responded to the call to participate; three took part in a Think Aloud session. Whilst one participant elected to provide feedback via a semi-structured interview. During the Think Aloud sessions, women were asked to use the app and verbalise all thoughts and actions, before providing information relating to the strengths and improvement opportunities of the digital health tool. Participants electing to do a semi-structured interivew were invited to use the tool from beginning to end, and then take part in an interview exploring each component of the app in relation to strengths and improvement opportunities. In both instances, audio and video were recorded. Transcripts from the two Think Aloud session, and the semi-structured interview were available to be analysed.  
+
+To recruit midwives, convenience sampling was used. A local midwifery school that had a relationship with the research team were presented the tool, and asked to participate in a World Cafe. One class agreed to participate in the study that had between 25 and 30 midwifery students. Participants were put into groups of three/ four, along with one member from the research team and were asked to complete a subset of lessons together, whilst verbalising thoughts on the content, and of the experience of using the tool. Information from participants was noted down by the researcher assigned to each group. The feedback from both the midwives and the pregnant women taking part in the qualitative data collection was used to infrom the design of Version 2.  
+
+After the release of Version 2, further qualitative data collection took place between December 2022 and March 2023. Pregnant women that had used the app were emailed and invited to take part in a semi-structured interview to identify strengths and improvement opportunities of the second iteration. Interviews were recorded and then transcribed; 19 transcripts were available to be analysed.   
+
+### Statistical analyses
+
+#### Sentiment analysis
+In order to evaluate the impact of incorporating feedback from end users and stakeholders on the sentiment towards the digital health tool, sentiment analysis was carried out. The Python library TextBlob was used derive a polarity score for segments of the qualitative data available from versions 1 and 2 of the digital health tool. Based on the polarity scores, text segments were tagged with a sentiment:  
+  
+  - a polarity score below 0 reflecting a negative sentiment,  
+  - a score of 0 reflecting a neutral sentiment,  
+  - a polarity score greater than 0 reflecting a positive sentiment  
+
+A Chi-Square analysis was used to determine if the proportion of negative, neutral and positive senitments differed between Version 1 and 2 of the digital tool. 
+
+#### Multivariate regression
+In order to evaluate the impact of incorporating feedback from end users and stakeholders on the frequency, intensity and duration of engagement with the digital health tool, multivariate multiple regression was carried out. The following independent variables were used to predict all engagement metrics:  
+  
+  - Perceived usefulness,  
+  - Risk perception, and  
+  - Co-creation  
+  
+Multivariate regression was carried out to identify the impact of predictors on the collection of engagement metrics that measured frequency of use, intensity of use and duration of use. Table 2 presents the variables used in the models, and how each was operationalized.
+
+### Data processing
+
+#### Sentiment analysis
+Prior to carrying out sentiment analysis, the text from the transcript was coded for relevance. Only segments of the text where participants were speaking about the digital tool were selected for the analysis.
+
+#### Multivariate regression
+Both predictor and outcome variables were processed before applying the models. Missing data, amongst the predictor variables, were imputed using Multiple Imputation by Chained Equations (MICE). Principal Components Analysis (PCA) was used to collapse engagement metrics that were continuous and conceptually similar, in order to mitigate the inflation of Type I error. The following variables were expressed as a single variable, “web-app progress”:  
+  
+  - pages viewed,  
+  - lessons completed and  
+  - open ended items completed  
+  
+Following the use of PCA, the component scores were scaled between 0 and 1 to help interpret the variable; scores closer to one reflected greater progress through the digital health tool.
+
+
+## Results
+
+### Sentiment analysis
+
+Sentiment analysis of feedback relating to the app, as reported by participants after using Version 1 and Version 2 found a larger proportion of positive sentiments for the latter (see Figure 4). A Chi-Square test for independence was performed to examine the relationship between sentiment and version of the digital tool. The relationship between the variables was significant. Participants were more likely to have a positive sentiment towards Version 2, which included end users and stakeholders in the development process.  
+
+```{r sentiment-stacked-bar-chart, echo = FALSE, warning=FALSE, fig.cap = "Figure 4: Proportion of sentiments expressed towards the digital health tool"}
+```
+
+### Multivariate regression
+
+Multivariate multiple regression was carried out to estimate the effect of incorporating end users and stakholders, as well as perceived usefulness and risk perception on user engagement metrics (DVs). Table 5 presents the anova model comparisons; demonstrating that incorporating risk perception and user and stakeholder involvement as IVs significantly improved the prediction of user engagement. Figures 5 to 10 present the descriptive statistics; presenting sample estimates for engagement metrics from Version 1 and 2 of the digital health tool.  
+
+```{r average-log-ins-plot, echo = FALSE, warning=FALSE, fig.cap = "Figure 5: Average log in for Versions 1 and 2 of the TeamBaby digital health tool"}
+```
+
+```{r pages-viewed-plot, echo = FALSE, warning=FALSE, fig.cap = "Figure 6: Pages viewed for Versions 1 and 2 of the TeamBaby digital health tool"}
+```
+
+```{r lessons-viewed-plot, echo = FALSE, warning=FALSE, fig.cap = "Figure 7: Lessons viewed for Versions 1 and 2 of the TeamBaby digital health tool"}
+```
+
+```{r open-ended-items-plot, echo = FALSE, warning=FALSE, fig.cap = "Figure 8: Open ended items completed for Versions 1 and 2 of the TeamBaby digital health tool"}
+```
+
+```{r action-plan-created-plot, echo = FALSE, warning=FALSE, fig.cap = "Figure 8: Open ended items completed for Versions 1 and 2 of the TeamBaby digital health tool"}
+```
+
+```{r time-spent-per-visit, echo = FALSE, warning=FALSE, fig.cap = "Figure 8: Open ended items completed for Versions 1 and 2 of the TeamBaby digital health tool"}
+```
+
+```{r days-between, echo = FALSE, warning=FALSE, fig.cap = "Figure 8: Open ended items completed for Versions 1 and 2 of the TeamBaby digital health tool"}
+```
+
+Table 6 presents the impact of the predictors on each engagement metric. The use of co-creation methods, to inform features of the digital tool, predicted more frequent log ins, greater progress through the content, higher likelihood of completing an action plan and more time spent using the tool. Risk perception was also a significant predictor of engagement with the digital tool; those who perceived a greater risk of poor communication with health care workers were predicted to log in more, and spend more time using the web-app. Perceived usefulness of communication training was not predictive of any engagement metrics.
