@@ -19,6 +19,7 @@ source("R/04_process_sentiment_data.R")
 source("R/06_chi_square_sentiment.R")
 source("R/06_mann_whitney_user_feedback.R")
 source("R/06_model_engagement.R")
+source("R/06_analyse_socio_demographics.R")
 
 ## ---- output-data
 source("R/08_create_output_tables.R")

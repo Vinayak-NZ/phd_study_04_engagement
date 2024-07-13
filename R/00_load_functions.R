@@ -140,3 +140,15 @@ user_feedback_var <- function(var, label, mu_output, data){
   return(output_table)
   
 }
+
+# partial-eta-squared
+eta_squared <- function(model) {
+  
+  SSeffect <- summary(aov(model))[[1]]["Sum Sq"]
+  
+  SSerror <- sum(SSeffect) - SSeffect
+  
+  eta_sq <- SSeffect / sum(SSeffect, SSerror)
+  
+  return(eta_sq)
+}

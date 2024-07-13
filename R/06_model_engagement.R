@@ -72,3 +72,13 @@ lm_average_time_spent <- lm(average_time_spent.numeric ~ hapa2_t1 + hapa1_t1 + c
 
 lm_days_between <- lm(days_between.numeric ~ hapa2_t1 + hapa1_t1 + co_creation_method, 
                             data = post_imputed)
+
+eta_total_log_in <- eta_squared(lm_total_log_in)
+
+eta_progress_score <- eta_squared(lm_progress_score)
+
+eta_action_plan <- eta_squared(lm_action_plan)
+
+eta_average_time_spent <- eta_squared(lm_average_time_spent)
+
+eta_days_between <- eta_squared(lm_days_between)
