@@ -67,6 +67,11 @@ app_v1_complete_data <- merge(app_v1_complete_data,
                                   by = "id", 
                               all.x = TRUE)
 
+app_v2_complete_data <- merge(app_v2_complete_data, 
+                              app_v2_baseline_subset, 
+                              by = "UserCode", 
+                              all.x = TRUE)
+
 ## ---- subset-join-data
 
 app_v1_key <- 
@@ -113,21 +118,15 @@ app_v2_key <-
                          "hapa5_t1", 
                          "safe1_t1", 
                          "safe2_t1", 
+                         "hapa2_t0", 
+                         "hapa3_t0",
+                         "hapa4_t0", 
+                         "hapa5_t0",
+                         "safe1_t0", 
+                         "safe2_t0", 
                          "ux", 
                          "content", 
                          "utility")]
-
-app_v2_key$hapa2_t0 <- mean(app_v2_key$hapa2_t1, na.rm = TRUE)
-
-app_v2_key$hapa3_t0 <- mean(app_v2_key$hapa3_t1, na.rm = TRUE)
-
-app_v2_key$hapa4_t0 <- mean(app_v2_key$hapa4_t1, na.rm = TRUE)
-
-app_v2_key$hapa5_t0 <- mean(app_v2_key$hapa5_t1, na.rm = TRUE)
-
-app_v2_key$safe1_t0 <- mean(app_v2_key$safe1_t1, na.rm = TRUE)
-
-app_v2_key$safe2_t0 <- mean(app_v2_key$safe2_t1, na.rm = TRUE)
 
 ## ---- append-app-data
 
