@@ -38,6 +38,11 @@ t_test_log_in <- t.test(total_log_in ~ version,
                         data_log_in, 
                         var.equal=TRUE)
 
+t_test_log_in_effect_size <- 
+  cohens_d(data_log_in, 
+         total_log_in ~ version, 
+         var.equal = TRUE)
+
 log_in_table <- data.frame(`Version 1` = t_test_log_in$estimate[[1]], 
                            `Version 2` = t_test_log_in$estimate[[2]], 
                            df = t_test_log_in$parameter[[1]], 

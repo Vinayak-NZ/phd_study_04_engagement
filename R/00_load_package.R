@@ -1,5 +1,4 @@
 ## ---- load-packages
-
 library(data.table)
 library(tidyverse)
 library(kableExtra)
@@ -14,8 +13,4 @@ library(ggcorrplot)
 library(factoextra)
 library(apaTables)
 library(flextable)
-# library(rstanarm)
-# library(bayesplot)
-# library(bayestestR)
-# library(BNSP)
-# library(brms)
+library(rstatix)

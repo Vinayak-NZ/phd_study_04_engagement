@@ -152,3 +152,12 @@ eta_squared <- function(model) {
   
   return(eta_sq)
 }
+
+# cramers-v-function
+cramers_V <- function(chi, n, df){
+  
+  output <- sqrt((chi) / (n * df))
+  
+  return(output)
+  
+}

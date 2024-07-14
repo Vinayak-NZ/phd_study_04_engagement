@@ -26,6 +26,13 @@ t_test_time_spent <- t.test(time_spent_visit ~ version,
        time_visit, 
        var.equal=TRUE)
 
+time_visit$time_spent_visit <- as.numeric(time_visit$time_spent_visit)
+
+t_test_time_spent_effect_size <- 
+  cohens_d(time_visit, 
+           time_spent_visit ~ version, 
+           var.equal = TRUE)
+
 time_spent_table <- data.frame(V1_mean = t_test_time_spent$estimate[[1]], 
                           V2_mean = t_test_time_spent$estimate[[2]], 
                           df = t_test_time_spent$parameter[[1]], 
@@ -80,6 +87,13 @@ ggplot(data = days_data) +
 t_test_days_between <- t.test(days_between ~ version, 
        days_data, 
        var.equal=TRUE)
+
+days_data$days_between <- as.numeric(days_data$days_between)
+
+t_test_days_between_effect_size <- 
+  cohens_d(days_data, 
+           days_between ~ version, 
+           var.equal = TRUE)
 
 days_between_table <- data.frame(V1_mean = t_test_days_between$estimate[[1]], 
                                V2_mean = t_test_days_between$estimate[[2]], 

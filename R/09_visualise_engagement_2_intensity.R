@@ -28,6 +28,11 @@ t_test_log_in_pages <- t.test(proption_viewed ~ version,
        pages, 
        var.equal=TRUE)
 
+t_test_log_in_pages_effect_size <- 
+  cohens_d(pages, 
+           proption_viewed ~ version, 
+           var.equal = TRUE)
+
 pages_table <- data.frame(`Version 1` = t_test_log_in_pages$estimate[[1]], 
                            `Version 2` = t_test_log_in_pages$estimate[[2]], 
                            df = t_test_log_in_pages$parameter[[1]], 
@@ -69,6 +74,11 @@ ggplot(data = lessons) +
 t_test_lessons_viewed <- t.test(lessons_viewed ~ version, 
        lessons, 
        var.equal=TRUE)
+
+t_test_lessons_effect_size <- 
+  cohens_d(lessons, 
+           lessons_viewed ~ version, 
+           var.equal = TRUE)
 
 lessons_viewed_table <- data.frame(`Version 1` = t_test_lessons_viewed$estimate[[1]], 
                           `Version 2` = t_test_lessons_viewed$estimate[[2]], 
@@ -112,6 +122,11 @@ ggplot(open_items, aes(x = proportion_completed, fill = version)) +
 t_test_open_items_viewed <- t.test(proportion_completed ~ version, 
        open_items, 
        var.equal=TRUE)
+
+t_test_open_items_effect_size <- 
+  cohens_d(open_items, 
+           proportion_completed ~ version, 
+           var.equal = TRUE)
 
 open_items_table <- data.frame(`Version 1` = t_test_open_items_viewed$estimate[[1]], 
                                    `Version 2` = t_test_open_items_viewed$estimate[[2]], 
@@ -157,6 +172,20 @@ ggplot(data = action_plan) +
 chisq_action_plan <- chisq.test(action_plan$version, 
            action_plan$action_plan, 
            correct=FALSE)
+
+t_test_open_items_effect_size <- 
+  cohens_d(open_items, 
+           proportion_completed ~ version, 
+           var.equal = TRUE)
+
+action_plan_table_count <- table(action_plan$version, 
+                                 action_plan$action_plan)
+
+action_chi_square_df <- min(dim(action_plan_table_count)) - 1
+
+action_plan_effect_size <- cramers_V(chi = chisq_action_plan$statistic, 
+                                     n = sum(action_plan_table_count), 
+                                     df = action_chi_square_df)
 
 action_plan_table <- data.frame(`Version 1` = (chisq_action_plan$observed[[3]])/(chisq_action_plan$observed[[1]] + chisq_action_plan$observed[[3]]) * 100, 
                                `Version 2` = (chisq_action_plan$observed[[4]])/(chisq_action_plan$observed[[2]] + chisq_action_plan$observed[[4]]) * 100, 
