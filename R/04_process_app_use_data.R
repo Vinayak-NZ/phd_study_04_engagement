@@ -1,3 +1,4 @@
+## ---- impute-data
 
 unique_cases <- 
   distinct(final_data_all_vars, version, id, .keep_all = TRUE)
@@ -5,37 +6,63 @@ unique_cases <-
 unique_cases <- 
   as.data.frame(unique_cases)
 
-variables_impute <- c("hapa2_t0", 
-               "hapa3_t0", 
-               "hapa4_t0", 
-               "hapa5_t0", 
-               "hapa1_t1", 
-               "hapa2_t1")
+# variables-impute
+vars_impute <- c(
+  "hapa1_t1","hapa1_t2","hapa1_t3","hapa1_t4",
+  "hapa2_t1","hapa2_t2","hapa2_t3","hapa2_t4",
+  "hapa3_t1","hapa3_t2","hapa3_t3","hapa3_t4",
+  "hapa4_t1","hapa4_t2","hapa4_t3","hapa4_t4",
+  "hapa5_t1","hapa5_t2","hapa5_t3","hapa5_t4",
+  "safe1_t1","safe2_t1","safe1_t2","safe2_t2",
+  "comm1_t1","comm1_t2","comm1_t3","comm1_t4",
+  "comm2_t1","comm2_t2","comm2_t3","comm2_t4",
+  "comm3_t1","comm3_t2","comm3_t3","comm3_t4",
+  "comm4_t1","comm4_t2","comm4_t3","comm4_t4",
+  "comm5_t1","comm5_t2","comm5_t3","comm5_t4",
+  "comm6_t1","comm6_t2","comm6_t3","comm6_t4",
+  "comm7_t1","comm7_t2","comm7_t3","comm7_t4", 
+  "ux", 
+  "content", 
+  "utility"
+)
 
-remainder <- unique_cases[, !(names(unique_cases) %in% variables_impute)]
+# Variables NOT to impute
+no_impute <- c(
+  "id",
+  "version", 
+  "UserCode", 
+  "age", 
+  "education", 
+  "fam_comp",
+  "in_app_age_grp", 
+  "in_app_occupation",
+  "proportion_pages_viewed", 
+  "lessons_viewed", 
+  "proportion_items_completed", 
+  "action_plan", 
+  "item_response", 
+  "total_log_in", 
+  "average_time_spent", 
+  "days_between"
+)
 
-to_impute <- unique_cases[, c("version",
-                           "id", 
-                           variables_impute)]
+# Initialize MICE setup
+pred <- make.predictorMatrix(unique_cases)
+meth <- make.method(unique_cases)
 
-init <- mice(to_impute, maxit = 0)
-meth <- init$method
-predM <- as.matrix(init$predictorMatrix)
+# Prevent Timestamp from informing others (but allow others to be imputed)
+meth[names(meth) %in% no_impute] <- ""    
+pred[, colnames(pred) %in% no_impute] <- 0 
 
-predM[, "version"] <- 0
-predM[, "id"] <- 0
-predM[, "hapa1_t1"] <- 0
-predM[, "hapa2_t1"] <- 0
+# Prevent imputation for given variables
+meth[!names(vars_impute) %in% no_impute] <- ""
 
-
-meth[c("version", "id", "hapa2_t0", "hapa3_t0", "hapa4_t0", "hapa5_t0")] = ""
-
-imputed <- mice(to_impute, 
-                method=meth, 
-                predictorMatrix=predM, 
-                m=5, 
-                print = FALSE)
-#long <- complete(imputed, action = 'long', include = TRUE)
-imputed <- complete(imputed)
-
-post_imputed <- merge(remainder, imputed, by = c("version", "id"))
+# Run imputation
+data_imputed <- mice(
+  unique_cases,
+  m = 5,            
+  maxit = 30,       
+  seed = 555,
+  predictorMatrix = pred,
+  method = meth
+)

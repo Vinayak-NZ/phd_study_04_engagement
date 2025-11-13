@@ -32,6 +32,38 @@ app_v2_active_subset_hapa <-
 names(app_v2_active_subset_hapa)[2:ncol(app_v2_active_subset_hapa)] <- 
   tolower(names(app_v2_active_subset_hapa)[2:ncol(app_v2_active_subset_hapa)])
 
+app_v1_active_subset_hapa[app_v1_active_subset_hapa == "" |
+                            app_v1_active_subset_hapa == " " |
+                            app_v1_active_subset_hapa == "." |
+                            app_v1_active_subset_hapa == "NA" |
+                            app_v1_active_subset_hapa == "-1x"] <- NA
+
+app_v2_active_subset_hapa[app_v2_active_subset_hapa == "" |
+                            app_v2_active_subset_hapa == " " |
+                            app_v2_active_subset_hapa == "." |
+                            app_v2_active_subset_hapa == "NA" |
+                            app_v2_active_subset_hapa == "-1x"] <- NA
+
+# remove entries that look like dates (contain '.' and 4 digits)
+
+app_v1_active_subset_hapa[] <- lapply(app_v1_active_subset_hapa, function(x) {
+  x[grepl("\\d{2}\\.\\d{2}\\.\\d{4}", x)] <- NA
+  x
+})
+
+app_v2_active_subset_hapa[] <- lapply(app_v2_active_subset_hapa, function(x) {
+  x[grepl("\\d{2}\\.\\d{2}\\.\\d{4}", x)] <- NA
+  x
+})
+
+# now convert all non-id columns to numeric
+
+app_v1_active_subset_hapa[, -1] <-
+  lapply(app_v1_active_subset_hapa[, -1], function(x) as.numeric(trimws(x)))
+
+app_v2_active_subset_hapa[, -1] <-
+  lapply(app_v2_active_subset_hapa[, -1], function(x) as.numeric(trimws(x)))
+
 ## ---- rename-hapa
 
 app_v1_active_subset_hapa <- hapa_rename(app_v1_active_subset_hapa)

@@ -3,7 +3,6 @@ remove_redundancy <- function(data, output){
   
   t2_vars <- grep("t2", names(data), value=TRUE)
   t3_vars <- grep("t3", names(data), value=TRUE)
-  t4_vars <- grep("t3", names(data), value=TRUE)
   
   output <- data[,!(names(data) %in% c(t2_vars, t3_vars))]
   
@@ -24,25 +23,7 @@ hapa_rename <- function(data){
   
 }
 
-## ---- rename-comm-v1
-comm_rename_v1 <- function(data) {
-  
-  names(data) <- gsub("sacciasu",  "comm1", names(data))
-  names(data) <- gsub("sacciaac1", "comm2", names(data))
-  names(data) <- gsub("sacciaac",  "comm2", names(data))
-  names(data) <- gsub("sacciaca",  "comm3", names(data))
-  names(data) <- gsub("sacciaco1", "comm4", names(data))
-  names(data) <- gsub("sacciaco2", "comm5", names(data))
-  names(data) <- gsub("sacciaia1", "comm6", names(data))
-  names(data) <- gsub("sacciaia2", "comm7", names(data))
-  
-  names(data) <- gsub("_11_", "_v5_", names(data))
-  names(data) <- gsub("_r_",  "_v6_", names(data))
-  
-  return(data)
-}
-
-## ---- rename-comm-v2
+## ---- rename-comm
 comm_rename <- function(data){
   
   names(data) <- gsub("comm1", "comm1", names(data))
@@ -66,6 +47,7 @@ safety_rename <- function(data){
   return(data)
   
 }
+
 
 ## ---- rename-feedback
 feedback_rename <- function(data){
@@ -175,7 +157,7 @@ user_feedback_var <- function(var, label, mu_output, data){
   
 }
 
-## ---- partial-eta-squared
+# partial-eta-squared
 eta_squared <- function(model) {
   
   SSeffect <- summary(aov(model))[[1]]["Sum Sq"]
@@ -187,32 +169,11 @@ eta_squared <- function(model) {
   return(eta_sq)
 }
 
-## ---- cramers-v-function
+# cramers-v-function
 cramers_V <- function(chi, n, df){
   
   output <- sqrt((chi) / (n * df))
   
   return(output)
-  
-}
-
-## ---- transform-to-post
-tx_post <- function(var, data){
-  
-  if (var %in% c("safe1", "safe2")) {
-    
-    data[[paste0(var, "_post")]] <- 
-      ifelse(data[["group"]] == 0, data[[paste0(var, "_t1")]], 
-             data[[paste0(var, "_t2")]])
-    
-  } else{
-    
-    data[[paste0(var, "_post")]] <- 
-      ifelse(data[["group"]] == 0, data[[paste0(var, "_t1")]], 
-             data[[paste0(var, "_t4")]])
-    
-  }
-  
-  return(data)
   
 }

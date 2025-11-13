@@ -48,23 +48,41 @@ names(app_v2_baseline_subset)[names(app_v2_baseline_subset) == "VUEIC2"] <- "saf
 
 app_v1_baseline$version <- "Version 1"
 
-names(app_v1_baseline)[names(app_v1_baseline) == "Alter"] <- "alter"
+names(app_v1_baseline)[names(app_v1_baseline) == "UUID"] <- "id"
 
-names(app_v1_baseline)[names(app_v1_baseline) == "Ausbildung"] <- "ausbildung"
+names(app_v1_baseline)[names(app_v1_baseline) == "Alter"] <- "age"
 
-names(app_v1_baseline)[names(app_v1_baseline) == "Familie"] <- "familie"
+names(app_v1_baseline)[names(app_v1_baseline) == "Ausbildung"] <- "education"
+
+names(app_v1_baseline)[names(app_v1_baseline) == "Familie"] <- "fam_comp"
 
 app_v1_baseline_demo <- app_v1_baseline[, c("version", 
-                                              "alter",
-                                              "ausbildung",
-                                              "familie")]
+                                              "age",
+                                              "education",
+                                              "fam_comp")]
+
+app_v1_baseline_demo_j <- app_v1_baseline[, c("id", 
+                                              "age",
+                                              "education",
+                                              "fam_comp")]
 
 app_v2_baseline$version <- "Version 2"
 
+names(app_v2_baseline)[names(app_v2_baseline) == "alter"] <- "age"
+
+names(app_v2_baseline)[names(app_v2_baseline) == "ausbildung"] <- "education"
+
+names(app_v2_baseline)[names(app_v2_baseline) == "familie"] <- "fam_comp"
+
 app_v2_baseline_demo <- app_v2_baseline[, c("version", 
-                                            "alter",
-                                            "ausbildung",
-                                            "familie")]
+                                            "age",
+                                            "education",
+                                            "fam_comp")]
+
+app_v2_baseline_demo_j <- app_v2_baseline[, c("UserCode", 
+                                            "age",
+                                            "education",
+                                            "fam_comp")]
 
 app_baseline_demo <- rbind(app_v1_baseline_demo, 
                       app_v2_baseline_demo)
