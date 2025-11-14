@@ -17,11 +17,16 @@ source("R/04_process_app_use_data.R")
 source("R/05_post_impute_edits.R")
 source("R/04_process_sentiment_data.R")
 
-## ---- analyse-data
+## ---- analyse-data-thesis
 source("R/06_chi_square_sentiment.R")
 source("R/06_mann_whitney_user_feedback.R")
 source("R/06_model_engagement.R")
 source("R/06_analyse_socio_demographics.R")
+
+## ---- analyse-data-bayesian
+source("R/06_set_priors_sentiment_analysis.R")
+source("R/07_build_bayesian_models.R")
+source("R/00_load_models.R")
 
 ## ---- output-data
 source("R/08_create_output_tables.R")

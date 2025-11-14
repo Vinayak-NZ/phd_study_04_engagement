@@ -60,9 +60,11 @@ meth[!names(vars_impute) %in% no_impute] <- ""
 # Run imputation
 data_imputed <- mice(
   unique_cases,
-  m = 5,            
+  m = 127,            
   maxit = 30,       
   seed = 555,
   predictorMatrix = pred,
   method = meth
 )
+
+saveRDS(data_imputed, file = "output/imputed_data_2025_11_14.rds")

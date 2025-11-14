@@ -79,6 +79,31 @@ for (i in 1:length(data_imputed_output)){
            order = FALSE, 
            levels = c(1, 2))
   
+  data_imputed_output[[i]]$in_app_age_grp <- 
+    ifelse(data_imputed_output[[i]]$in_app_age_grp == "bis25", 
+           1, ifelse(data_imputed_output[[i]]$in_app_age_grp == "bis40", 
+                     2, ifelse(data_imputed_output[[i]]$in_app_age_grp == "bis55", 3, NA)))
+  
+  data_imputed_output[[i]]$in_app_age_grp <- 
+    factor(data_imputed_output[[i]]$in_app_age_grp, 
+           order = TRUE, 
+           levels = c(1, 2, 3))
+  
+  data_imputed_output[[i]]$ux <- 
+    factor(data_imputed_output[[i]]$ux, 
+           order = TRUE, 
+           levels = c(1, 2, 3, 4))
+  
+  data_imputed_output[[i]]$content <- 
+    factor(data_imputed_output[[i]]$content, 
+           order = TRUE, 
+           levels = c(1, 2, 3, 4))
+  
+  data_imputed_output[[i]]$utility <- 
+    factor(data_imputed_output[[i]]$utility, 
+           order = TRUE, 
+           levels = c(1, 2, 3, 4))
+  
   data_imputed_output[[i]]$progress_score_scaled <- 
     scale(data_imputed_output[[i]]$progress_score)[,1]
   

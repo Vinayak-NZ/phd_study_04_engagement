@@ -1,0 +1,26 @@
+ Family: gaussian 
+  Links: mu = identity 
+Formula: safe_mean_scaled ~ co_creation_method * time + (1 | id) 
+   Data: data_imputed_long (Number of observations: 226568) 
+  Draws: 4 chains, each with iter = 4000; warmup = 500; thin = 1;
+         total post-warmup draws = 14000
+
+Multilevel Hyperparameters:
+~id (Number of levels: 892) 
+              Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sd(Intercept)     0.69      0.02     0.66     0.73 1.02      179      299
+
+Regression Coefficients:
+                          Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept                    -0.09      0.03    -0.15    -0.04 1.02       72      246
+co_creation_method1           0.09      0.05     0.01     0.18 1.04       73      220
+time2                         0.13      0.00     0.13     0.14 1.00    25098    10763
+co_creation_method1:time2    -0.06      0.01    -0.07    -0.04 1.00    29085     9934
+
+Further Distributional Parameters:
+      Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+sigma     0.72      0.00     0.72     0.72 1.00    13554     8840
+
+Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).
