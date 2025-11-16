@@ -37,6 +37,14 @@ smd <- or2smd(sentiment_delta_log, sentiment_se)
 prior_progress_pe <- smd$TE
 prior_progress_sd <- smd$seTE
 
+## ---- set-priors-items-completed
+
+prior_items_weight <- 0.5
+base_sd_items <- 0.5
+
+prior_items_pe <- sentiment_delta_log
+prior_items_sd   <- sentiment_se
+
 ## ---- set-priors-action-plan
 
 odds_ratio_action_plan <- exp(sentiment_delta_log)
@@ -45,9 +53,8 @@ percent_change_action_plan <- (odds_ratio_action_plan - 1) * 100
 prior_action_plan_weight <- 0.5
 base_sd_action_plan <- 0.5
 
-prior_action_plan_pe <- sentiment_delta_log * prior_action_plan_weight
-prior_action_plan_sd   <- 
-  sqrt((sentiment_se^2 / prior_action_plan_weight) + base_sd_action_plan^2)
+prior_action_plan_pe <- sentiment_delta_log
+prior_action_plan_sd   <- sentiment_se
 
 ## ---- set-priors-time-spent
 
@@ -70,5 +77,5 @@ prior_comms_sd <- smd$seTE + base_sd_comms
 prior_safety_weight <- 0.5
 base_sd_safety <- 0.5
 
-prior_safety_pe <- smd$TE * prior_safety_weight
+prior_safety_pe <- (smd$TE * prior_safety_weight)*-1
 prior_safety_sd <- smd$seTE + base_sd_safety
