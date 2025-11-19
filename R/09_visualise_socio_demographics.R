@@ -152,3 +152,54 @@ ggplot(table_family,
         plot.subtitle = element_text(color = "#454543"),
         plot.caption = element_text(color = "#454543", face = "italic")
   ) 
+
+
+## ---- age-in-app
+
+data_no_impute_age <- 
+  data_no_impute[!is.na(data_no_impute$in_app_age_grp), ]
+
+data_no_impute_age$version <- 
+  ifelse(data_no_impute_age$co_creation_method == 0, 1, 2)
+
+data_no_impute_age$in_app_age_grp <- 
+  ifelse(data_no_impute_age$in_app_age_grp == 1, 
+         "< 25", 
+         ifelse(data_no_impute_age$in_app_age_grp == 2, 
+                "25 - 40", 
+                ifelse(data_no_impute_age$in_app_age_grp == 3, 
+                       "40 - 55", NA)))
+
+table_in_app_age <- as.data.frame(
+  table(data_no_impute_age$version, 
+        data_no_impute_age$in_app_age_grp))
+
+names(table_in_app_age)[names(table_in_app_age) == "Var1"] <- 
+  "version"
+
+names(table_in_app_age)[names(table_in_app_age) == "Var2"] <- 
+  "age"
+
+names(table_in_app_age)[names(table_in_app_age) == "Freq"] <- 
+  "frequency"
+
+ggplot(table_in_app_age, 
+       aes(fill = age, 
+           y = frequency, 
+           x = version)) + 
+  geom_bar(position="fill", stat="identity") + 
+  scale_fill_manual(values = c("#46e7fd", 
+                               "#4739a2", 
+                               "#e18b22")) +
+  labs(title = paste0("Age breakdowns of end users"), 
+       subtitle = "Bar chart of age of end users",
+       fill = "Age") +
+  xlab("Version") + 
+  ylab("Proportion") + 
+  theme(panel.grid.major = element_blank(), panel.grid.minor = element_blank(),
+        panel.background = element_blank(), axis.line = element_line(colour = "black"), 
+        plot.title = element_text(color = "#2F2E41", size = 12, face = "bold"),
+        plot.subtitle = element_text(color = "#454543"),
+        plot.caption = element_text(color = "#454543", face = "italic"))
+
+

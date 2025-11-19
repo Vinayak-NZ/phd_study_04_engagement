@@ -64,13 +64,13 @@ bf_days_between <- bf(
 )
 
 bf_comm <- bf(
-  comm_mean_post_scaled ~ co_creation_method + comm_mean_pre_scaled + (1 | id),
+  comm_mean_post_scaled ~ co_creation_method + comm_mean_pre_scaled,
   family = gaussian()
 )
 
 bf_safe <- bf(
-  safe_mean_post_scaled ~ co_creation_method + safe_mean_pre_scaled + (1 | id),
-  family = gaussian()
+  safe_mean_post_scaled ~ co_creation_method + safe_mean_pre_scaled,
+  family = student()
 )
 
 # bayesian-model-build

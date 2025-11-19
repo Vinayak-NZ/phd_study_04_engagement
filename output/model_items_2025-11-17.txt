@@ -1,0 +1,21 @@
+ Family: beta 
+  Links: mu = logit 
+Formula: proportion_items_completed_scaled ~ co_creation_method + in_app_age_grp 
+   Data: data_imputed_long (Number of observations: 112776) 
+  Draws: 4 chains, each with iter = 4000; warmup = 500; thin = 1;
+         total post-warmup draws = 14000
+
+Regression Coefficients:
+                    Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+Intercept               0.41      0.01     0.39     0.43 1.00    11035    10327
+co_creation_method1     0.37      0.01     0.35     0.38 1.00    12850     9561
+in_app_age_grp.L        0.46      0.02     0.42     0.50 1.00     8870     8117
+in_app_age_grp.Q       -0.43      0.01    -0.45    -0.40 1.00     9936     9423
+
+Further Distributional Parameters:
+    Estimate Est.Error l-95% CI u-95% CI Rhat Bulk_ESS Tail_ESS
+phi     0.65      0.00     0.65     0.66 1.00    16655    11248
+
+Draws were sampled using sample(hmc). For each parameter, Bulk_ESS
+and Tail_ESS are effective sample size measures, and Rhat is the potential
+scale reduction factor on split chains (at convergence, Rhat = 1).

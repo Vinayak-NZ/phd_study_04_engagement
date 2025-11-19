@@ -16,6 +16,7 @@ source("R/04_derive_variables.R")
 source("R/04_process_app_use_data.R")
 source("R/05_post_impute_edits.R")
 source("R/04_process_sentiment_data.R")
+source("R/04_no_impute_data.R")
 
 ## ---- analyse-data-thesis
 source("R/06_chi_square_sentiment.R")
@@ -27,6 +28,9 @@ source("R/06_analyse_socio_demographics.R")
 source("R/06_set_priors_sentiment_analysis.R")
 source("R/07_build_bayesian_models.R")
 source("R/00_load_models.R")
+source("R/08_bayes_model_output.R")
+source("R/08_output_in_app_descriptives.R")
+source("R/09_visualise_bayes_models.R")
 
 ## ---- output-data
 source("R/08_create_output_tables.R")
@@ -36,3 +40,4 @@ source("R/09_visualise_engagement_3_duration.R")
 source("R/09_visualise_socio_demographics.R")
 source("R/09_visualise_sentiment.R")
 source("R/09_visualise_user_feedback.R")
+source("R/09_visualise_end_user_profiles.R")
